@@ -8,7 +8,7 @@ import typing
 import numbers
 import itertools
 from efficient_apriori.itemsets import apriori_gen
-
+from tqdm import tqdm
 
 class Rule(object):
     """
@@ -324,7 +324,7 @@ def generate_rules_apriori(
         print("Generating rules from itemsets.")
 
     # For every itemset of a perscribed size
-    for size in itemsets.keys():
+    for size in tqdm(itemsets.keys()):
 
         # Do not consider itemsets of size 1
         if size < 2:
